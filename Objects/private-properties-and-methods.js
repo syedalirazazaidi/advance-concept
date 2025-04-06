@@ -29,3 +29,15 @@ function CreateCounter(count) {
 }
 const counter = new CreateCounter(10);
 counter.increment(); // 1
+
+
+// closure vs  scope
+function outerFunction() {
+  let outerVariable = "I am outside!";
+  function innerFunction() {
+    console.log(outerVariable); // Accessing outerVariable from innerFunction
+  }
+  return innerFunction;
+}
+const innerFunc = outerFunction(); // outerFunction returns innerFunction
+innerFunc(); // I am outside!
