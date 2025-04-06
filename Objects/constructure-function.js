@@ -9,6 +9,14 @@ constructure = function (name, properties) {
   this.callFunction = function () {
     console.log(`This is a ${this.name} with properties: ${this.properties}`);
   };
+  //  private method
+  let drinkCoffeePrivate = function () {
+    console.log("Drinking coffee...");
+  };
+  // public method
+  this.drinkCoffee = function () {
+    drinkCoffee();
+  };
 };
 // Example usage:
 let programmingLanguage = new constructure("JavaScript", {
@@ -17,3 +25,33 @@ let programmingLanguage = new constructure("JavaScript", {
 });
 programmingLanguage.callFunction(); // This is a JavaScript with properties: [object Object]
 programmingLanguage.properties.type = "Programming Language"; // Updating property
+programmingLanguage.callFunction(); // This is a JavaScript with properties: [object Object]
+programmingLanguage.drinkCoffeePrivate(); // Drinking coffee...
+
+
+function CreateGroceryList(item1, item2, item3, item4) {
+  this.item1 = item1;
+  this.item2 = item2;
+  this.item3 = item3;
+  this.item4 = item4;
+  this.displayItems = function () {
+    console.log(`Grocery List: ${this.item1}, ${this.item2}`);
+  };
+  // private method
+  // private method
+  let drinkCoffeePrivate = function () {
+    console.log("Drinking coffee...");
+  };
+  drinkCoffeePrivate()
+}
+
+const groceryList = new CreateGroceryList(
+  "Apples",
+  "Bananas",
+  "Oranges",
+  "Grapes"
+);
+
+groceryList.displayItems(); // Grocery List: Apples, Bananas
+groceryList.item1 = "Mangoes"; // Updating item1
+groceryList.drinkCoffeePrivate()
