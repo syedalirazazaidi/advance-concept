@@ -11,7 +11,7 @@ let user = {
   },
 };
 let guest = {
-__proto__: user,
+  __proto__: user,
   isAdmin: false,
 };
 let admin = {
