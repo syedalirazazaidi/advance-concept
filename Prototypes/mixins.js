@@ -34,4 +34,3 @@ const obj2 = {
   language: "javscript",
 };
 mixin(obj3, obj2);
-
