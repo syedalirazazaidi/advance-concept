@@ -1,12 +1,16 @@
-import { useState } from "react";
+// React.memo , usememo , useCallback
 
-import "./App.css";
+import { useState, useCallback } from 'react';import "./App.css";
+import ChildComponent from "./ChildComponent";
 
 function App() {
   const [count, setCount] = useState(0);
   const [otherState, setOtherState] = useState("");
 
   const handleClick = () => setCount(count + 1);
+  const handleChildClick = useCallback(() => {
+    console.log('Child clicked');
+  }, []);
   return (
     <div>
       <input
@@ -14,20 +18,9 @@ function App() {
         onChange={(e) => setOtherState(e.target.value)}
       />
       <button onClick={handleClick}>Increment: {count}</button>
-      <ChildComponent count={count} onClick={() => console.log("clicked")} />
+      <ChildComponent count={count} onClick={handleChildClick}/>
     </div>
   );
 }
 
 export default App;
-
-function ChildComponent({
-  count,
-  onClick,
-}: {
-  count: number;
-  onClick: () => void;
-}) {
-  console.log("ChildComponent rendered");
-  return <div onClick={onClick}>Count: {count}</div>;
-}
